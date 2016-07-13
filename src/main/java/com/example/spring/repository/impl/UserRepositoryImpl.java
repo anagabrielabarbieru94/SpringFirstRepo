@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class UserRepositoryImpl implements UserRepository{
 
+
 	public UserRepositoryImpl(){
 
 	}
@@ -33,7 +34,10 @@ public class UserRepositoryImpl implements UserRepository{
 
 	@Override
 	public void save(User user) {
-		System.out.println("Hello! UserRepository save() method...");
+		System.out.println("Hello! Saved user...");
+		System.out.println("FirstName: " + user.getFirstName());
+		System.out.println("LastName: " + user.getLastName());
+		System.out.println("Age: " + user.getAge());
 	}
 
 }

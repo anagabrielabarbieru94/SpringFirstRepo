@@ -2,24 +2,20 @@ package com.example.spring.controller;
 
 import com.example.spring.domain.User;
 import com.example.spring.service.UserService;
-import com.example.spring.service.impl.UserServiceImpl;
-import com.example.spring.service.impl.UserServiceOtherImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 
 public class UserController {
 
+	
 	@Autowired
+	@Qualifier("service2")
 	private UserService userService;
 
 
-	@Autowired
-	public UserController(UserServiceImpl serv){
+	public void setUserService(UserService serv){
 		this.userService = serv;
-	}
-
-	public UserController(){
-
 	}
 
 	public void createUser(User user){

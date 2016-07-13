@@ -8,16 +8,17 @@ import com.example.spring.repository.UserRepository;
 import com.example.spring.repository.impl.UserRepositoryImpl;
 import com.example.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.*;
+import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepositoryImpl userRepo;
+	private UserRepository userRepo;
 
 	@Autowired
-	public UserServiceImpl(UserRepositoryImpl rep){
+	public UserServiceImpl(UserRepository rep){
 		this.userRepo = rep;
 	}
 
@@ -25,11 +26,11 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public void setUserRepository(UserRepositoryImpl repo){
+	public void setUserRepository(UserRepository repo){
 		this.userRepo = repo;
 	}
 
-	public UserRepositoryImpl getUserRepo(){
+	public UserRepository getUserRepo(){
 		return userRepo;
 	}
 
